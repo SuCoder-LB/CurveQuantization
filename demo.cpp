@@ -14,8 +14,10 @@ void LoadPatches(const std::string &filename, curve_quantization::ChartData &cha
   std::map<size_t, int> node_mp;
   for (int i = 0; i < n_nodes; ++i) {
     curve_quantization::ChartNode node;
-    node_mp[node.id] = i;
+
     fscanf(fp, "%zd%lf%lf%lf", &node.id, &node.x, &node.y, &node.z);
+    node_mp[node.id] = i;
+
     chart_data.nodes.emplace_back(node);
   }
 
